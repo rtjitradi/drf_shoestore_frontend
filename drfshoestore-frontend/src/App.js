@@ -10,6 +10,12 @@ class App extends React.Component {
     };
   }
 
+  componentDidMount() {
+    fetch("https://github.com/KenzieAcademy/django-rest-rtjitradi")
+    .then(response => response.json())
+    .then(data => this.setState({shoe: data.results}));
+  }
+
   render() {
     return (
       <div>
