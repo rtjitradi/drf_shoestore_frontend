@@ -11,16 +11,17 @@ class App extends React.Component {
   }
 
   componentDidMount() {
-    fetch("http://127.0.0.1:8000/api/shoe/")
+    fetch("http://127.0.0.1:8000/shoe/")
     .then(response => response.json())
-    .then(data => this.setState({shoe: data.results}));
+    .then(data => this.setState({shoe: data}));
   }
 
   render() {
     return (
       <div>
-        <ul>
+        
         {this.state.shoe.map(shoe => (
+          <ul>
           <div>
           <li>Brand Name: {shoe.brand_name}</li>
           <li>Size: {shoe.size}</li>
@@ -30,8 +31,9 @@ class App extends React.Component {
           <li>Shoe Type: {shoe.shoe_type}</li>
           <li>Fasten Type: {shoe.fasten_type}</li>
           </div>
-        ))}
         </ul>
+          
+        ))}
       </div>
     );
 
